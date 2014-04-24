@@ -7,15 +7,6 @@ server {
   server_name <%= full_hostname %>;
   return 301 https://<%= www_hostname %>$request_uri;
 }
-
-server {
-  listen      [::]:443 ssl spdy;
-  listen      443 ssl spdy;
-  server_name <%= hostname %>;
-  ssl_certificate     <%= File.join(ssl, 'server.crt') %>;
-  ssl_certificate_key <%= File.join(ssl, 'server.key') %>;
-  return 301 https://<%= www_hostname %>$request_uri;
-}
 <% end %>
 
 server {
